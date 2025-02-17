@@ -8,11 +8,11 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.1.0'
+        classpath 'com.android.tools.build:gradle:8.2.0'
     }
 }
 
-rootProject.allprojects {
+allprojects {
     repositories {
         google()
         mavenCentral()
@@ -23,18 +23,15 @@ apply plugin: 'com.android.library'
 
 android {
     namespace "com.pichillilorenzo.flutter_inappwebview"
-    compileSdkVersion 35
+    compileSdk 35
 
     defaultConfig {
-        minSdkVersion 17
+        minSdk 17
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-
         vectorDrawables.useSupportLibrary = true
         consumerProguardFiles 'proguard-rules.pro'
     }
-    lintOptions {
-        disable 'InvalidPackage'
-    }
+
     buildTypes {
         debug {
             minifyEnabled false
@@ -45,11 +42,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    dependencies {
-        implementation 'androidx.webkit:webkit:1.5.0'
-        implementation 'androidx.browser:browser:1.4.0'
-        implementation 'androidx.appcompat:appcompat:1.5.1'
-        implementation 'com.squareup.okhttp3:okhttp:3.14.9'
-        implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
-    }
+}
+
+dependencies {
+    implementation 'androidx.webkit:webkit:1.10.0'
+    implementation 'androidx.browser:browser:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.squareup.okhttp3:okhttp:4.11.0'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
 }
